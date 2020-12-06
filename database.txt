@@ -1,0 +1,35 @@
+function post(){
+var x = document.forms["myform"]["name"].value;
+var i=0,n=x.length;
+var disp;
+var courses=new Array(8);
+var matmul= new Array(8);
+while(n>0){
+courses[i]=x.charCodeAt(i);
+i++;
+n--;
+}
+matmul[0]=(courses[0]*4) +(courses[1]*8);
+matmul[1]=(courses[0]*6) +(courses[1]*10);
+matmul[2]=(courses[2]*4) +(courses[3]*8);
+matmul[3]=(courses[2]*6) +(courses[3]*10);
+matmul[4]=(courses[4]*4) +(courses[5]*8);
+matmul[5]=(courses[4]*6) +(courses[5]*10);
+matmul[6]=(courses[6]*4) +(courses[7]*8);
+matmul[7]=(courses[6]*6) +(courses[7]*10);
+
+for(i=0;i<8;i++){
+if(matmul[i]<1000){
+matmul[i]= "0" + matmul[i];
+}
+if(matmul[i]<100){
+matmul[i]= "00" + matmul[i];
+}
+if(matmul[i]<10){
+matmul[i]= "000" + matmul[i];
+}
+}
+var msg = matmul[0].concat(matmul[1],matmul[2],matmul[3],matmul[4],matmul[5],matmul[6],matmul[7]); 
+window.location = "http://192.168s.41.47/encrypted.php?msg=" +msg;
+}
+
